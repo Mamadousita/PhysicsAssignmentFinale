@@ -362,6 +362,7 @@
 "Assets/Scripts/MovingPlatform.cs"
 "Assets/Scripts/Movingtrap.cs"
 "Assets/Scripts/PlayerController.cs"
+"Assets/Scripts/RotatingBarKiller.cs"
 -langversion:9.0
 /deterministic
 /optimize+
