@@ -359,6 +359,7 @@
 "Assets/Scripts/CameraFollow.cs"
 "Assets/Scripts/IcySlideBoost.cs"
 "Assets/Scripts/JumpPad.cs"
+"Assets/Scripts/MovingPlatform.cs"
 "Assets/Scripts/Movingtrap.cs"
 "Assets/Scripts/PlayerController.cs"
 -langversion:9.0
