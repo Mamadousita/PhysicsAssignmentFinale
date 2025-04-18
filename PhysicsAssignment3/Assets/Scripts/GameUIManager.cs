@@ -5,35 +5,34 @@ using TMPro;
 
 public class GameUIManager : MonoBehaviour
 {
+    [Header("UI Elements")]
     public TextMeshProUGUI chronoText;
     public TextMeshProUGUI keysText;
 
+    [Header("Timer Settings")]
     public float totalTime = 120f; // 2 minutes
-    private float currentTime;
 
+    [Header("Player Reference")]
     public PlayerCheckpoint player;
 
+    private float currentTime;
+    private bool chronoStarted = false;
     private bool gameEnded = false;
 
     void Start()
     {
         currentTime = totalTime;
+        UpdateUI(); 
     }
 
     void Update()
     {
-        if (gameEnded) return;
+        if (!chronoStarted || gameEnded) return;
 
-        // Chrono
         currentTime -= Time.deltaTime;
         currentTime = Mathf.Max(currentTime, 0f);
 
-        int minutes = Mathf.FloorToInt(currentTime / 60);
-        int seconds = Mathf.FloorToInt(currentTime % 60);
-        chronoText.text = $"Time: {minutes:00}:{seconds:00}";
-
-        // Key UI
-        keysText.text = $"Keys: {player.keysCollected} / 5";
+        UpdateUI();
 
        
         if (currentTime <= 0f)
@@ -46,11 +45,24 @@ public class GameUIManager : MonoBehaviour
         }
     }
 
+    public void StartChrono()
+    {
+        chronoStarted = true;
+    }
+
     void EndGame(string message)
     {
         gameEnded = true;
         chronoText.text = message;
         Debug.Log(message);
-        // Tu peux aussi activer un menu de victoire/défaite ici
+    }
+
+    void UpdateUI()
+    {
+        int minutes = Mathf.FloorToInt(currentTime / 60);
+        int seconds = Mathf.FloorToInt(currentTime % 60);
+        chronoText.text = $"Time: {minutes:00}:{seconds:00}";
+
+        keysText.text = $"Keys: {player.keysCollected} / 5";
     }
 }

@@ -359,6 +359,7 @@
 "Assets/Scripts/CameraFollow.cs"
 "Assets/Scripts/GameUIManager.cs"
 "Assets/Scripts/IcySlideBoost.cs"
+"Assets/Scripts/IntroPanelManager.cs"
 "Assets/Scripts/JumpPad.cs"
 "Assets/Scripts/Keyspickup.cs"
 "Assets/Scripts/MovingPlatform.cs"
